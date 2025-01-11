@@ -4,11 +4,14 @@ import { GrPause } from "react-icons/gr";
 import { IoPlayOutline } from "react-icons/io5";
 import { IoMdShuffle } from "react-icons/io";
 import { FiRepeat } from "react-icons/fi";
+import { RiDownloadLine } from "react-icons/ri";
+import { MdOutlineFavoriteBorder,MdOutlineFavorite } from "react-icons/md";
 
 const Progress: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
+  const [isFavorite, setIsFavorite] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlayPause = () => {
@@ -46,7 +49,7 @@ const Progress: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-4  text-white">
+    <div className="w-full max-w-md mx-auto px-4 text-white">
       <audio
         ref={audioRef}
         src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
@@ -81,26 +84,35 @@ const Progress: React.FC = () => {
         <span className="text-sm text-gray-400">{formatTime(duration)}</span>
       </div>
 
-      <div className="flex items-center justify-between mt-4">
+      <div className="flex items-center justify-between my-2">
         <button className="text-gray-400 hover:text-white">
-          <IoMdShuffle size={26} />
+          <IoMdShuffle size={25} />
         </button>
 
         <button className="text-gray-400 hover:text-white">
-          <TbPlayerSkipBack size={32} />
+          <TbPlayerSkipBack size={30} />
         </button>
 
-        <button className=" p-3 rounded-full text-white " onClick={togglePlayPause}>
-          {isPlaying ? <GrPause size={30} /> : <IoPlayOutline size={30} />}
+        <button className="  text-white " onClick={togglePlayPause}>
+          {isPlaying ? <GrPause size={28} /> : <IoPlayOutline size={28} />}
         </button>
 
         <button className="text-gray-400 hover:text-white">
-          <TbPlayerSkipForward size={32} />
+          <TbPlayerSkipForward size={30} />
         </button>
 
         <button className="text-gray-400 hover:text-white">
           <FiRepeat size={25} />
         </button>
+      </div>
+      <div className="flex justify-between">
+      <button className="text-gray-400 hover:text-white">
+          <RiDownloadLine size={28}/>
+      </button>
+      <button className="text-gray-400 hover:text-white" onClick={() => setIsFavorite(!isFavorite)}>
+        { isFavorite  ?<MdOutlineFavorite color="red" size={27}/>:<MdOutlineFavoriteBorder size={27}/>}
+          
+      </button>
       </div>
     </div>
   );
