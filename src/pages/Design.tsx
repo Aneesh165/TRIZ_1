@@ -6,7 +6,7 @@ import { FaChevronDown } from "react-icons/fa6";
 
 const Design = () => {
   return (
-    <div className='w-[330px] bg-[#001625] h-[585px] rounded-xl'>
+    <div className='w-full h-screen bg-[#001625] rounded-xl md:h-[585px]'>
         <Header/>
         <Card/>
         <Lyric/>
