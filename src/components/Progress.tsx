@@ -105,7 +105,7 @@ const Progress: React.FC = () => {
           <FiRepeat size={25} />
         </button>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between my-4 sm:my-0">
       <button className="text-gray-400 hover:text-white">
           <RiDownloadLine size={28}/>
       </button>
