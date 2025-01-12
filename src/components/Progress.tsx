@@ -84,7 +84,7 @@ const Progress: React.FC = () => {
         <span className="text-sm text-gray-400">{formatTime(duration)}</span>
       </div>
 
-      <div className="flex items-center justify-between my-2">
+      <div className="flex items-center justify-between my-5 sm:my-2">
         <button className="text-gray-400 hover:text-white">
           <IoMdShuffle size={25} />
         </button>
