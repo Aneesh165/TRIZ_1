@@ -6,7 +6,7 @@ const Header = () => {
   const [Playlistdetail, setPlaylistdetail] = useState<PlaylistDetail>("PLAYING FROM PLAYLIST");
 
   return (
-    <div className="flex justify-between px-5 mt-7 mb-7 sm:mb-2 sm:mt-5 pt-1">
+    <div className="flex justify-between px-5 mt-7 mb-7 h-[10%] sm:mb-2 sm:mt-5 pt-1">
       <div className="text-white">
         <button>
           <svg
