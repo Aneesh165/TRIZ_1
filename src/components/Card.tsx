@@ -12,7 +12,7 @@ const Card = () => {
   });
 
   return (
-    <div className="w-full h-[280px] flex justify-center items-center text-white mt-2">
+    <div className="w-full h-[280px] flex justify-center items-center text-white sm:mb-1 mb-7 mt-2">
       <div className="w-[270px] h-[280px] rounded-3xl bg-gradient-to-b from-[#001625] to-[#06273a] flex flex-col items-center justify-evenly">
         <div className="w-[220px] h-[220px] rounded-full overflow-hidden">
           <img
