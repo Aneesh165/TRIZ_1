@@ -6,12 +6,12 @@ import { FaChevronDown } from "react-icons/fa6";
 
 const Design = () => {
   return (
-    <div className='w-full h-screen bg-[#001625] sm:rounded-xl sm:w-[350px] sm:h-[585px] overflow-hidden'>
+    <div className='w-full h-screen bg-[#001625] sm:rounded-xl sm:w-[350px] sm:h-[585px] overflow-hidden '>
         <Header/>
         <Card/>
         <Lyric/>
         <Progress/>
-        <div className='flex justify-center text-white mt-4'>
+        <div className='flex justify-center sm:h-auto h-[6%] text-white mt-4'>
           <FaChevronDown size={20}/>
         </div>
     </div>

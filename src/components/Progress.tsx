@@ -5,7 +5,7 @@ import { IoPlayOutline } from "react-icons/io5";
 import { IoMdShuffle } from "react-icons/io";
 import { FiRepeat } from "react-icons/fi";
 import { RiDownloadLine } from "react-icons/ri";
-import { MdOutlineFavoriteBorder,MdOutlineFavorite } from "react-icons/md";
+import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 
 const Progress: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -49,7 +49,7 @@ const Progress: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-4 text-white">
+    <div className="w-full max-w-md mx-auto sm:h-auto h-[19%] px-4 text-white">
       <audio
         ref={audioRef}
         src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
@@ -57,8 +57,8 @@ const Progress: React.FC = () => {
         onLoadedMetadata={handleLoadedMetadata}
       />
 
-      <div className="flex items-center space-x-4">
-        <span className="text-sm text-gray-400">
+      <div className="flex items-center sm:h-auto h-[30%]  space-x-4">
+        <span className="text-lg sm:text-sm text-gray-400">
           {formatTime((progress / 100) * duration)}
         </span>
         <div className="relative flex-grow h-2 bg-gray-700 rounded-full">
@@ -68,7 +68,7 @@ const Progress: React.FC = () => {
           ></div>
 
           <div
-            className="absolute w-4 h-4 bg-white border-2 border-blue-400 rounded-full -top-1 left-0 transform -translate-x-1/2 cursor-pointer"
+            className="absolute  w-4 h-4 bg-white border-2 border-blue-400 rounded-full -top-1 left-0 transform -translate-x-1/2 cursor-pointer"
             style={{ left: `${progress}%` }}
           ></div>
 
@@ -78,41 +78,56 @@ const Progress: React.FC = () => {
             max="100"
             value={progress}
             onChange={(e) => handleSeek(Number(e.target.value))}
-            className="absolute top-0 left-0 w-full h-2 opacity-0 cursor-pointer"
+            className="absolute  top-0 left-0 w-full h-2  opacity-0 cursor-pointer"
           />
         </div>
-        <span className="text-sm text-gray-400">{formatTime(duration)}</span>
+        <span className="text-lg sm:text-sm text-gray-400">
+          {formatTime(duration)}
+        </span>
       </div>
 
-      <div className="flex items-center justify-between my-5 sm:my-2">
+      <div className="flex items-center justify-between sm:h-auto h-[30%] sm:my-2">
+        {/* my-5 */}
         <button className="text-gray-400 hover:text-white">
-          <IoMdShuffle size={25} />
+          <IoMdShuffle size={window.innerWidth >= 640 ? 25 : 30}  />
         </button>
 
         <button className="text-gray-400 hover:text-white">
-          <TbPlayerSkipBack size={30} />
+          <TbPlayerSkipBack size={window.innerWidth >= 640 ? 30 : 35}  />
         </button>
 
-        <button className="  text-white " onClick={togglePlayPause}>
-          {isPlaying ? <GrPause size={28} /> : <IoPlayOutline size={28} />}
+        <button className="text-white" onClick={togglePlayPause}>
+          {isPlaying ? (
+              <GrPause size={window.innerWidth >= 640 ? 28 : 33}  />
+          ) : (
+              <IoPlayOutline size={window.innerWidth >= 640 ? 28 : 33}  />
+          )}
         </button>
 
         <button className="text-gray-400 hover:text-white">
-          <TbPlayerSkipForward size={30} />
-        </button>
+        <TbPlayerSkipForward 
+    size={window.innerWidth >= 640 ? 30 : 35} 
+  />        </button>
 
         <button className="text-gray-400 hover:text-white">
-          <FiRepeat size={25} />
+          <FiRepeat size={window.innerWidth >= 640 ? 25 : 30}  />
         </button>
       </div>
-      <div className="flex justify-between my-4 sm:my-0">
-      <button className="text-gray-400 hover:text-white">
-          <RiDownloadLine size={28}/>
-      </button>
-      <button className="text-gray-400 hover:text-white" onClick={() => setIsFavorite(!isFavorite)}>
-        { isFavorite  ?<MdOutlineFavorite color="red" size={27}/>:<MdOutlineFavoriteBorder size={27}/>}
-          
-      </button>
+      <div className="flex justify-between sm:h-auto h-[30%] sm:my-0">
+        {/* my-4 */}
+        <button className="text-gray-400 hover:text-white">
+          <RiDownloadLine size={window.innerWidth >= 640 ? 28 : 33}  />
+        </button>
+        <button
+          className="text-gray-400 hover:text-white"
+          onClick={() => setIsFavorite(!isFavorite)}
+        >
+          {isFavorite ? (
+            <MdOutlineFavorite color="red" size={window.innerWidth >= 640 ? 27 : 32}  />
+          ) : (
+            <MdOutlineFavoriteBorder size={window.innerWidth >= 640 ? 27 : 32}  />
+          )}
+        </button>
       </div>
     </div>
   );
